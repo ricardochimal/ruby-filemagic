@@ -3,11 +3,11 @@ Gem::Specification.new do |s|
 	s.rubygems_version = "1.1.1"
 	s.platform = "ruby"
 	s.description = "Ruby FileMagic Library Bindings"
-	s.summary = ""
+	s.summary = "Ruby FileMagic Library Bindings"
 	s.version = "0.1.1"
 	s.has_rdoc = "false"
 	s.name = "ruby-filemagic"
-	s.author = ["Travis Whitton", "Ricardo Chimal, Jr."]
+	s.authors = ["Travis Whitton", "Ricardo Chimal, Jr."]
 	s.email = "ricardo@heroku.com"
 
 	s.extensions = ["extconf.rb"]
