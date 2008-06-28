@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
 	s.name = "ruby-filemagic"
 	s.authors = ["Travis Whitton", "Ricardo Chimal, Jr."]
 	s.email = "ricardo@heroku.com"
+	s.homepage = "http://github.com/ricardochimal/ruby-filemagic"
 
 	s.extensions = ["extconf.rb"]
 
