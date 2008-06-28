@@ -1,23 +1,27 @@
+FileMagic Library Binding
 
-        FileMagic Library Binding
+June 27, 2008 Ricardo Chimal, Jr. <ricardo@heroku.com>
 
-        July 28, 2003 Travis Whitton <whitton@atlantic.net>
+	I needed a packaged gem version of this ruby binding so I stuck it in github and created a gemspec.  Enjoy.	
 
-This is one of my first ruby bindings, so suggestions are welcome. See
-filemagic.rd and test.rb for usage.
 
-to install, run these commands:
+July 28, 2003 Travis Whitton <whitton@atlantic.net>
 
-ruby extconf.rb
-make
-su
-make install
+	This is one of my first ruby bindings, so suggestions are welcome. See
+	filemagic.rd and test.rb for usage.
 
-the file(1) library and headers are required.
-I have file 0.4.3.
+	to install, run these commands:
 
-Enjoy!
-Travis
+	ruby extconf.rb
+	make
+	su
+	make install
+
+	the file(1) library and headers are required.
+	I have file 0.4.3.
+
+	Enjoy!
+	Travis
 
 [Copying]
 The filemagic extension library is copywrited free software by Travis Whitton
