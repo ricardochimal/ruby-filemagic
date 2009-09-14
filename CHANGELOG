@@ -8,3 +8,8 @@ o Initial release.
 
 o Added manual close method
 o Added unit test suite
+
+--------------------------------------------------------------------------------
+9/14/2009 version 0.1.2
+
+o Ruby 1.9 compatibility (by http://github.com/red-agent)

@@ -16,6 +16,10 @@
 #include "ruby.h"
 #include <magic.h>
 
+#ifndef RSTRING_LEN
+#define RSTRING_LEN(str) RSTRING(str)->len
+#endif
+
 static VALUE cFileMagic, rb_FileMagicError;
 
 #define GetMagicCookie(obj, cookie) {\
@@ -83,7 +87,7 @@ static VALUE magick_file(VALUE class, VALUE file)
 /* Return a string describing the string buffer */
 static VALUE magick_buffer(VALUE class, VALUE buffer)
 {
-    int i = RSTRING(buffer)->len;
+    int i = RSTRING_LEN(buffer);
     const char *m;
     magic_t cookie;
     m = STR2CSTR(buffer);
