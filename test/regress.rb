@@ -53,4 +53,21 @@ class TestFileMagic < Test::Unit::TestCase
     assert_equal(res, 0)
     File.unlink("perl.mgc")
   end
+
+  def test_new
+    assert_raise(ArgumentError) do
+      FileMagic.new(FileMagic::MAGIC_COMPRESS, nil)
+    end
+    assert_nothing_raised do
+      fm = FileMagic.new
+      assert_equal(FileMagic::MAGIC_NONE, fm.flags)
+    end
+  end
+
+  def test_flags
+    fm = FileMagic.new(FileMagic::MAGIC_COMPRESS)
+    assert_equal(FileMagic::MAGIC_COMPRESS, fm.flags)
+    fm.flags = FileMagic::MAGIC_NONE
+    assert_equal(FileMagic::MAGIC_NONE, fm.flags)
+  end
 end

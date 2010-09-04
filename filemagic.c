@@ -55,10 +55,22 @@ static VALUE magick_close(VALUE class)
 }
 
 /* FileMagic.new */
-static VALUE magick_new(VALUE class, VALUE flags)
+static VALUE magick_new(int argc, VALUE *argv, VALUE obj)
 {
-    VALUE obj;
+    VALUE class = cFileMagic;
+    VALUE flags;
     magic_t cookie;
+    switch(argc) {
+        case 0:
+            flags = rb_const_get(class, rb_intern("MAGIC_NONE"));
+            break;
+        case 1:
+            flags = argv[0];
+            break;
+        default:
+            rb_raise(rb_eArgError, "wrong number of arguments (%i for 1)", argc);
+            break;
+    }
     cookie = magic_open(NUM2INT(flags));
     if (cookie == NULL) {
         rb_fatal("out of memory");
@@ -123,13 +135,14 @@ static VALUE magick_compile(VALUE class, VALUE file)
 
 void Init_filemagic() {
     cFileMagic = rb_define_class("FileMagic", rb_cObject);
-    rb_define_singleton_method(cFileMagic, "new", magick_new, 1);
+    rb_define_singleton_method(cFileMagic, "new", magick_new, -1);
     rb_define_method(cFileMagic, "initialize", magick_init, 1);
     rb_define_method(cFileMagic, "close", magick_close, 0);
     rb_define_method(cFileMagic, "file", magick_file, 1);
     rb_define_method(cFileMagic, "buffer", magick_buffer, 1);
     rb_define_method(cFileMagic, "check", magick_check, 1);
     rb_define_method(cFileMagic, "compile", magick_compile, 1);
+    rb_define_attr(cFileMagic, "flags", 1, 1);
     rb_define_const(cFileMagic, "MAGIC_NONE", INT2FIX(MAGIC_NONE));
     rb_define_const(cFileMagic, "MAGIC_DEBUG", INT2FIX(MAGIC_DEBUG));
     rb_define_const(cFileMagic, "MAGIC_SYMLINK", INT2FIX(MAGIC_SYMLINK));

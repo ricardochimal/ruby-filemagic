@@ -34,3 +34,9 @@
 : close()
     closes the magic database and frees any memory allocated. if memory
     is a concern, use this.
+: flags()
+    returns the instance flags (see "Constants" above).
+: flags=(flags)
+    set the instance flags (see "Constants" above).
+: new(flags=MAGIC_NONE)
+    create a new FileMagic instance.
