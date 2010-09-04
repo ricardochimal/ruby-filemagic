@@ -1,4 +1,4 @@
-require '../filemagic'
+require 'filemagic'
 
 # watch -n 1 'ps aux | grep leaktest'
 

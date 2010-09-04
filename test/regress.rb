@@ -1,5 +1,5 @@
 require "test/unit"
-require "../filemagic"
+require "filemagic"
 
 class TestFileMagic < Test::Unit::TestCase
   def test_file
