@@ -1,0 +1,8 @@
+.swp
+.*.swp
+Makefile
+mkmf.log
+filemagic.o
+filemagic.so
+ruby-filemagic-*.gem
+core
