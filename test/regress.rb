@@ -2,6 +2,15 @@ require "test/unit"
 require "filemagic"
 
 class TestFileMagic < Test::Unit::TestCase
+  def setup
+    @oldwd = Dir.getwd
+    Dir.chdir( File.dirname(__FILE__) )
+  end
+
+  def teardown
+    Dir.chdir( @oldwd )
+  end
+
   def test_file
     fm = FileMagic.new(FileMagic::MAGIC_NONE)
     res = fm.file("pyfile")
@@ -19,8 +28,7 @@ class TestFileMagic < Test::Unit::TestCase
     fm.close
     fm = FileMagic.new(FileMagic::MAGIC_COMPRESS)
     res = fm.file("pyfile-compressed.gz")
-    assert_equal("a python script text executable (gzip compressed data, " +
-                 'was "pyfile-compressed", from Unix)', res)
+    assert_equal('a python script text executable (gzip compressed data, was "pyfile-compressed", from Unix, last modified: Wed Jul 30 21:20:45 2003)', res)
     fm.close
   end
 
@@ -28,7 +36,7 @@ class TestFileMagic < Test::Unit::TestCase
     fm = FileMagic.new(FileMagic::MAGIC_NONE)
     res = fm.buffer("#!/bin/sh\n")
     fm.close
-    assert_equal("a /bin/sh script text executable", res)
+    assert_equal("POSIX shell script text executable", res)
   end
 
   def test_check
