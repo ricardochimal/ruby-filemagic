@@ -6,3 +6,4 @@ filemagic.o
 filemagic.so
 ruby-filemagic-*.gem
 core
+html

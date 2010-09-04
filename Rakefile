@@ -36,6 +36,13 @@ task :build do
   system( 'make' )
 end
 
+desc 'RDoc Documentation'
+Rake::RDocTask.new do |rdoc|
+  rdoc.rdoc_files.add %w[ README TODO AUTHORS filemagic.c ]
+  rdoc.main = 'README'
+  rdoc.title = 'Ruby FileMagic Library Binding'
+end
+
 desc 'Install'
 task :install do
   system( 'make install' )
