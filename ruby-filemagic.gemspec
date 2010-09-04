@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
 	s.platform = "ruby"
 	s.description = "Ruby FileMagic Library Bindings"
 	s.summary = "Ruby FileMagic Library Bindings"
-	s.version = "0.1.2"
+	s.version = "0.1.3"
 	s.has_rdoc = "false"
 	s.name = "ruby-filemagic"
 	s.authors = ["Travis Whitton", "Ricardo Chimal, Jr."]
