@@ -7,7 +7,9 @@ ruby-filemagic provides a ruby binding to GNU libmagic.
 
 == Prerequisites
 
-GNU file package to provide libmagic (tested with 5.04).
+GNU file package to provide libmagic (tested with 5.04).  On
+Debian-like Linux systems this is provided by package libmagic-dev.
+For Solaris systems sunfreeware.com provides package SMCfile.
 
 
 == Build and install
@@ -42,6 +44,13 @@ or run:
 
 
 == Tests
+
+Note that tests may fail if you have a different version of libmagic
+since the file content descriptive text may vary slightly. For example,
+a plain file gives these differing results:
+
+  libmagic v5.04: text/plain; charset=us-ascii
+  libmagic v4.26: text/plain charset=us-ascii
 
 To run the unit tests:
 
