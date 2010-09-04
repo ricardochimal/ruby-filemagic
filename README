@@ -1,35 +1,75 @@
-FileMagic Library Binding
+= Ruby FileMagic Library Binding
 
-June 27, 2008 Ricardo Chimal, Jr. <ricardo@heroku.com>
+== Summary
 
-	I needed a packaged gem version of this ruby binding so I stuck it in github and created a gemspec.  Enjoy.	
+ruby-filemagic provides a ruby binding to GNU libmagic.
 
 
-July 28, 2003 Travis Whitton <whitton@atlantic.net>
+== Prerequisites
 
-	This is one of my first ruby bindings, so suggestions are welcome. See
-	filemagic.rd and test.rb for usage.
+GNU file package to provide libmagic (tested with 5.04).
 
-	to install, run these commands:
 
-	ruby extconf.rb
-	make
-	su
-	make install
+== Build and install
 
-	the file(1) library and headers are required.
-	I have file 0.4.3.
+To build either:
 
-	Enjoy!
-	Travis
+    rake build
 
-[Copying]
-The filemagic extension library is copywrited free software by Travis Whitton
-<whitton@atlantic.net>. You can redistribute it under the terms specified in
-the COPYING file of the Ruby distribution.
+or run:
 
-[WARRANTY]
-THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
-IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
-WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR
-PURPOSE.
+    ruby extconf.rb
+    make
+
+To install (non-gem) either:
+
+    rake install
+
+or run:
+
+    make install
+
+
+== Gem
+
+To create a gem, build as above then either:
+
+    rake gem
+
+or run:
+
+    gem build ruby-filemagic.gemspec
+
+
+== Tests
+
+To run the unit tests:
+
+    rake test
+
+or run:
+
+    ruby test/regress.rb
+
+
+== Examples
+
+    require 'filemagic'
+    magic = FileMagic.new
+    puts magic.file('/tmp/foo')
+    magic.close
+
+
+== Copying
+
+The filemagic extension library is copywrited free software by Travis
+Whitton <whitton@atlantic.net>. You can redistribute it under the terms
+specified in the COPYING file of the Ruby distribution.
+
+
+== WARRANTY
+
+THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+

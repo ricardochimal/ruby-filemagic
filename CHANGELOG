@@ -1,15 +1,23 @@
 --------------------------------------------------------------------------------
-7/28/2003 version 0.1.0
+2003/07/28 version 0.1.0
 
-o Initial release.
-
---------------------------------------------------------------------------------
-7/30/2003 version 0.1.1
-
-o Added manual close method
-o Added unit test suite
+o Initial release (Travis Whitton <whitton@atlantic.net>)
 
 --------------------------------------------------------------------------------
-9/14/2009 version 0.1.2
+2003/07/30 version 0.1.1
 
-o Ruby 1.9 compatibility (by http://github.com/red-agent)
+o Added manual close method (Travis Whitton <whitton@atlantic.net>)
+o Added unit test suite (Travis Whitton <whitton@atlantic.net>)
+
+--------------------------------------------------------------------------------
+2009/09/14 version 0.1.2
+
+o Packaged gem (Ricardo Chimal, Jr. <ricardo@heroku.com>)
+o Ruby 1.9 compatibility (http://github.com/red-agent)
+
+--------------------------------------------------------------------------------
+2010/09/04 version 0.1.3
+
+o Fixes for ruby 1.9.2
+o #flags and #flags= methods
+
