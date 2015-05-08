@@ -14,13 +14,13 @@ class TestFileMagic < Test::Unit::TestCase
   def test_file
     fm = FileMagic.new(FileMagic::MAGIC_NONE)
     res = fm.file("pyfile")
-    assert_equal("a python script text executable", res)
+    assert_equal("Python script, ASCII text executable", res)
     res = fm.file("pylink")
-    assert_equal("symbolic link to `pyfile'", res)
+    assert_equal("symbolic link to pyfile", res)
     fm.close
     fm = FileMagic.new(FileMagic::MAGIC_SYMLINK)
     res = fm.file("pylink")
-    assert_equal("a python script text executable", res)
+    assert_equal("Python script, ASCII text executable", res)
     fm.close
     fm = FileMagic.new(FileMagic::MAGIC_SYMLINK | FileMagic::MAGIC_MIME)
     res = fm.file("pylink")
@@ -28,7 +28,7 @@ class TestFileMagic < Test::Unit::TestCase
     fm.close
     fm = FileMagic.new(FileMagic::MAGIC_COMPRESS)
     res = fm.file("pyfile-compressed.gz")
-    assert_equal('a python script text executable (gzip compressed data, was "pyfile-compressed", from Unix, last modified: Wed Jul 30 21:20:45 2003)', res)
+    assert_equal('Python script, ASCII text executable (gzip compressed data, was "pyfile-compressed", last modified: Wed Jul 30 21:20:45 2003, from Unix)', res)
     fm.close
   end
 
@@ -36,7 +36,7 @@ class TestFileMagic < Test::Unit::TestCase
     fm = FileMagic.new(FileMagic::MAGIC_NONE)
     res = fm.buffer("#!/bin/sh\n")
     fm.close
-    assert_equal("POSIX shell script text executable", res)
+    assert_equal("POSIX shell script, ASCII text executable", res)
   end
 
   def test_check
