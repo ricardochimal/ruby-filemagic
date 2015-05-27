@@ -84,6 +84,11 @@ static VALUE magick_new(int argc, VALUE *argv, VALUE obj)
     return obj;
 }
 
+static VALUE magick_version() {
+    return INT2FIX(MAGIC_VERSION);
+}
+
+
 /* Return a string describing file */
 static VALUE magick_file(VALUE class, VALUE file)
 {
@@ -142,6 +147,7 @@ void Init_filemagic() {
     rb_define_method(cFileMagic, "buffer", magick_buffer, 1);
     rb_define_method(cFileMagic, "check", magick_check, 1);
     rb_define_method(cFileMagic, "compile", magick_compile, 1);
+    rb_define_method(cFileMagic, "version", magick_version, 0);
     rb_define_attr(cFileMagic, "flags", 1, 1);
     rb_define_const(cFileMagic, "MAGIC_NONE", INT2FIX(MAGIC_NONE));
     rb_define_const(cFileMagic, "MAGIC_DEBUG", INT2FIX(MAGIC_DEBUG));

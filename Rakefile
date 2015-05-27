@@ -1,8 +1,8 @@
 
 require 'pathname'
 require 'rake'
-require 'rake/gempackagetask'
-require 'rake/rdoctask'
+require 'rubygems/package_task'
+require 'rdoc/task'
 require 'rake/testtask'
 
 gemspec = eval( File.read('ruby-filemagic.gemspec') )
@@ -49,7 +49,7 @@ task :install do
 end
 
 task :gem
-Rake::GemPackageTask.new(gemspec) do |pkg|
+Gem::PackageTask.new(gemspec) do |pkg|
   pkg.need_tar = true
 end
 
