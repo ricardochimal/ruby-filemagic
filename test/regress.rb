@@ -75,5 +75,6 @@ class TestFileMagic < Test::Unit::TestCase
     fm = FileMagic.new(FileMagic::MAGIC_SYMLINK | FileMagic::MAGIC_MIME)
     fm_version = fm.version
     assert_not_nil(fm_version)
+    assert_equal(fm_version > 400, true)
   end
 end

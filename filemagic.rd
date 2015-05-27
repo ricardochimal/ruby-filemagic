@@ -38,5 +38,7 @@
     returns the instance flags (see "Constants" above).
 : flags=(flags)
     set the instance flags (see "Constants" above).
+: version()
+    returns the libmagic version.
 : new(flags=MAGIC_NONE)
     create a new FileMagic instance.

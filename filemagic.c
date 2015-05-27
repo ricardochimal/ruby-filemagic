@@ -85,7 +85,7 @@ static VALUE magick_new(int argc, VALUE *argv, VALUE obj)
 }
 
 static VALUE magick_version() {
-    return MAGIC_VERSION;
+    return INT2FIX(MAGIC_VERSION);
 }
 
 
