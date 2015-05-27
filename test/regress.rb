@@ -70,4 +70,10 @@ class TestFileMagic < Test::Unit::TestCase
     fm.flags = FileMagic::MAGIC_NONE
     assert_equal(FileMagic::MAGIC_NONE, fm.flags)
   end
+
+  def test_version
+    fm = FileMagic.new(FileMagic::MAGIC_SYMLINK | FileMagic::MAGIC_MIME)
+    fm_version = fm.version
+    assert_not_nil(fm_version)
+  end
 end
